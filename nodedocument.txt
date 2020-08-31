@@ -1,0 +1,16 @@
+
+***********Node.js************
+-------------------------------------------------
+
+1-cmd-> npm init (used for install package.json)
+2-cmd->nodemon  index.js (create a index.js).
+3-cmd->npm i express --save(install express in json)..
+4-cmd->npm i body-parser -- save (install body-parser).
+5-create index,js(use <dir>index.js) cmd
+6- serverv open node(cmd-Nodemon Index.js)
+7-file Mongod open (for Mongo Db Connection) 
+8-cmd->npm  install mongodb --save(install  mongodb version in package.json)
+9-cmd->dir>register.ejs(create register.ejs in views)
+10-cmd->npm install ejs --save(install ejs in package.json)
+11-cmd->npm insall body-parser --save(install in package.json)To get data from parse in index.js
+12-cmd->npm install bcrpty --save(used  for bcrpt for hash making password)

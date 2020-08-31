@@ -1,0 +1,104 @@
+  MongoDB
++++----+++
+===----===
+
+@) db - show the current database
+
+@) use <dbname> - it will start using the specified db (if not present it will create it)
+
+@) show dbs - it will display all dbs present (only those which has atleast one collection or one row)
+
+@) db.<collectionname>.insert({"col1":"val","col2":"val"}); - use to inset one document in collection in json format 
+
+@) db.dropDatabase() - delete the current db.
+
+@) show collections - display the collection present in the current db.
+
+@) db.createCollection(name,{option}) - create a collection with given name and with option if specified.  
+	ex- db.createCollection("mycol", { capped : true, autoIndexID : true, size : 6142800, max : 10000 } )
+
+@) db.<collectionsname>.drop() - delete the specified collection from the current db.
+
+@) db.<collectionname>.insert([{"col1":"val","col2":"val"},{"col1":"val","col2":"val","col3":"val"}]) - insert multiple datas in a single line.
+
+@) db.trial.find() - it is used to select all data in a particular collection.
+
+@) db.trial.find({"searchOnCol1":"searchvalue"}) -  select all data of a particular row based on search column and its row.
+
+@) db.trial.findOne() - returns only the first row.
+
+@) db.trial.find().pretty() - display the returned data in a formated way.
+
+@) db.trial.update() - it is used to update a particular row(document).
+	ex - db.trial.update({"fname":"vikash"},{$set:{"age":22}})
+
+@) db.trial.save() - it will replace the entire  document with the new one.
+	ex - >db.COLLECTION_NAME.save({_id:ObjectId(),NEW_DATA})
+	ex - >db.mycol.save({"_id" : ObjectId(5983548781331adf45ec7), "title":"Tutorials Point New Topic", "by":"Tutorials Point"})
+
+@) db.trial.find({where},{columnnames})  -- to return specified column only.
+
+@) db.trial.remove({}) - truncate
+
+@) db.trial.remove({"fname":"vikash"}) - delete all those documents whose fname is vikash from the current db.
+
+@) db.trial.remove({"fname":"vikash"},1) - delete only the first occurence.
+
+@) AND and OR Operations  -- db.inventory.find( { $and: [ { price: { $ne: 1.99 } }, { price: { $exists: true } } ] } )
+                             db.inventory.find( { $or: [ { price: { $ne: 1.99 } }, { price: { $exists: true } } ] } )     
+
+
+
+-------- MongoDB relational operations -----------
+==================================================
+< - $lt EXAMPLE- db.collection.find({"salary":{$lt:5000}})   -- where sal<5000;
+> - $gt
+<= - $lte
+>= - $gte
+!= - $ne
+= - simple object with name value  pair ({"fname":"vikash"})
+
+AND - comma  EXAMPLE- db.collection.find({"fname":"vikash","salary":{$gte:5000}})
+
+OR - $or:  EXAMPLE- db.trial.find({$or:[{"col1":"val"},{"col2":"val"}]})
+
+AND OR together - EXAMPLE- find({"col1":"val",$or:[{"col2":"val"},{"col3":"val"}]})
+                           find({"col1":{$gt:10},$or:[{"col2":"val"},{"col3":"val"}]}) 
+
+==================================================
+
+
+
+---------DATA TYPES SUpported by mongoDB----------
+==================================================
+String
+
+Integer
+
+Boolean
+
+Double
+
+Min/ Max keys : This type is used to compare a value against the lowest and highest BSON elements.
+
+Arrays : This type is used to store arrays or list or multiple values into one key.
+
+Timestamp : ctimestamp. This can be handy for recording when a document has been modified or added.
+
+Object : This datatype is used for embedded documents.
+
+Null : This type is used to store a Null value.
+
+Symbol : This datatype is used identically to a string however, it's generally reserved for languages that use a specific symbol type.
+
+Date : This datatype is used to store the current date or time in UNIX time format. You can specify your own date time by creating object of Date and passing day, month, year into it.
+
+Object ID : This datatype is used to store the document’s ID.
+
+Binary data : This datatype is used to store binay data.
+
+Code : This datatype is used to store javascript code into document.
+
+Regular expression : This datatype is used to store regular expression.
+==================================================
+

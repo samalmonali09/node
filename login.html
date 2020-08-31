@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+</head>
+<body>
+<h5>Login form</h5>
+<form action="http://localhost:5244/login" method="post">
+    <label>email:<input type="email" name="email" id="email" placeholder="email"></label></br>
+    <label>password:<input type="password" name="password" id="password" placeholder="password"></label></br>
+    <input type="submit" name="submit" value="submit" id="submit">
+</form>
+<button type="button" id="button">test</button>
+<p id="re"></p>
+
+<script
+        src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+<script>
+    $('#button').click(function () {
+        $.ajax({
+            url: 'http://localhost:5244/test',
+            contentType: 'application/json',
+            success: function (response) {
+                console.log(response)
+                $('#re').text(response)
+                setTimeout(function () {
+                    $('#re').text(' ')
+                }, 500)
+            }
+        })
+    })
+</script>
+</body>
+</html>
